@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createOvermind } from 'overmind';
+import { Provider } from 'overmind-react';
+import { config } from './presenter';
+
+const overmind = createOvermind(config);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider value={overmind}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
