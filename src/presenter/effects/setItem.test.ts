@@ -1,9 +1,8 @@
-import { Todo } from '../state';
 import { setItem } from './setItem';
 
 describe('setItem', () => {
   let setItemStub: jest.Mock<any,any>;
-  let mockItem: Todo;
+  let mockItem: any;
 
   beforeEach(() => {
     mockItem = {

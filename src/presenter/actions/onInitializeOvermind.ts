@@ -1,9 +1,14 @@
 import type { Context } from "../";
 
 export const onInitializeOvermind = (
-  { state, effects }: Context
+  { state, effects, actions }: Context
 ) => {
-  const currentTodos = effects.getItem('todos') || [];
+  const currentFavorites = effects.getItem('favorites') || [];
 
-  state.todos = currentTodos;
+  effects.router.initialize({
+    '/': actions.showHomePageSequence,
+    '/starships': actions.showStarshipsPageSequence,
+  });
+
+  state.favorites = currentFavorites;
 };

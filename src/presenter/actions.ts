@@ -1,4 +1,6 @@
-import { addTodoAction } from "./actions/addTodoAction";
+import { addFavoriteAction } from "./actions/addFavoriteAction";
 import { onInitializeOvermind } from "./actions/onInitializeOvermind";
+import { showStarshipsPageSequence } from "./sequences/showStarshipsPageSequence";
+import { showHomePageSequence } from "./sequences/showHomePageSequence";
 
-export { addTodoAction, onInitializeOvermind };
+export { addFavoriteAction, onInitializeOvermind, showHomePageSequence, showStarshipsPageSequence };

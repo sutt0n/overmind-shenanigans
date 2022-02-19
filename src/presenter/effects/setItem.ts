@@ -1,5 +1,3 @@
-import { Todo } from "../state";
-
-export const setItem = (key : string, item : Todo) => {
+export const setItem = (key : string, item : any) => {
   localStorage.setItem(key, JSON.stringify(item));
 }
