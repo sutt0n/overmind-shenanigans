@@ -1,25 +1,25 @@
 import { createOvermindMock, OvermindMock } from "overmind";
-import { config } from "../";
+import { config } from "..";
 
-describe("addTodoAction", () => {
+describe("addFavoriteAction", () => {
   let overmind: OvermindMock<{
-    state: { todoTitle: string; todoDescription: string };
+    state: { favorites: Array<string> };
     actions: typeof import("../actions");
     effects: typeof import("../effects");
   }>;
   let getItemStub: jest.Mock<any, any>;
   let setItemStub: jest.Mock<any, any>;
-  let mockTodo = { title: "TODO Title", description: "TODO Description" };
+  let mockFavorite = 'http://swapi.com';
 
   beforeEach(() => {
-    getItemStub = jest.fn().mockReturnValue([mockTodo]);
+    getItemStub = jest.fn().mockReturnValue([mockFavorite]);
     setItemStub = jest.fn();
 
     // TODO: refactor
     overmind = createOvermindMock(
       {
         ...config,
-        state: { todoTitle: "TODO Title", todoDescription: "TODO Description" },
+        state: { favorites: [] },
       },
       {
         getItem: getItemStub,
@@ -28,26 +28,24 @@ describe("addTodoAction", () => {
     );
   });
 
-  it("loads the initial todos with addTodoAction", () => {
-    const newTodo = {
-      title: "New Todo Title",
-      description: "New Todo Description",
-    };
+  it("loads the initial todos with addFavoriteAction", () => {
+    const newFavorite = 'https://swapi.com';
 
-    overmind.actions.addTodoAction(newTodo);
+    // @todo: fix call signature; prolly make it an object
+    overmind.actions.addFavoriteAction(newFavorite);
 
     expect(getItemStub).toHaveBeenCalled();
     expect(getItemStub).toHaveBeenCalledWith("todos");
     expect(setItemStub).toHaveBeenCalled();
     expect(setItemStub).toHaveBeenCalledWith(
-      "todos",
+      "favorites",
       expect.arrayContaining([
-        expect.objectContaining(newTodo)
+        newFavorite
       ])
     );
     expect(overmind.state).toEqual(
       expect.objectContaining({
-        todos: [mockTodo, newTodo],
+        favorites: [mockFavorite, newFavorite],
       })
     );
   });

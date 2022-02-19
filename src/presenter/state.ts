@@ -1,8 +1,16 @@
-export type Todo = {
-  title: string,
-  description: string,
+export type Starship = {
+  name: string,
+  model: string,
+  url: string,
+  manufacturer: string,
+  length: string,
+  starship_class: string,
+  hyperdrive_rating: string,
 };
 
 export const state = {
-  todos: [] as Todo[],
+  currentPage: 'home',
+  isLoading: false as boolean,
+  starships: [] as Starship[],
+  favorites: [] as string[],
 };
