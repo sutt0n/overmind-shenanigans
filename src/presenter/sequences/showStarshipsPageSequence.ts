@@ -1,7 +1,7 @@
 import { pipe } from 'overmind';
 import { setPage } from '../operators/setPage';
 import { setIsLoading } from '../operators/setIsLoading';
-import { getAllStarshipsAction } from '../actions/starships-page/getAllStarshipsAction';
+import { getAllStarshipsAction } from '../actions/page-starships/getAllStarshipsAction';
 
 export const showStarshipsPageSequence = pipe(
   setPage('STARSHIPS'),

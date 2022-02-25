@@ -20,11 +20,10 @@ export const Starships = () => {
 
   const onClickBtnFavorite = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    url: string,
-    idx: number
+    url: string
   ) => {
     // @todo: fix action call signature
-    addFavoriteAction(url, idx);
+    addFavoriteAction(url);
   };
 
   return (
@@ -56,7 +55,7 @@ export const Starships = () => {
                   onClick={(
                     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
                   ) => {
-                    onClickBtnFavorite(e, starship.url, idx);
+                    onClickBtnFavorite(e, starship.url);
                   }}
                 >
                   Favorite

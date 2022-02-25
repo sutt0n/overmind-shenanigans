@@ -11,6 +11,6 @@ export type Starship = {
 export const state = {
   currentPage: 'home',
   isLoading: false as boolean,
-  starships: [] as Starship[],
+  starships: [] as string[],
   favorites: [] as string[],
 };
