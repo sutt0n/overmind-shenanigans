@@ -11,8 +11,10 @@ export const addFavoriteAction = (
 
   state.favorites = currentFavorites;
 
-  effects.setItem("todos", currentFavorites);
+  effects.setItem("favorites", currentFavorites);
 
   // remove from state
-  state.starships = state.starships.filter(_url => url !== _url);
+  state.starships = [...state.starships.filter(starship => {
+    return url !== starship.url
+  })];
 };

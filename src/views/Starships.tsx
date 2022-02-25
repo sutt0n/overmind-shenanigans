@@ -5,7 +5,6 @@ import {
   Button,
   CardActionArea,
   CardContent,
-  CardActions,
   Card,
 } from "@mui/material";
 import { useActions, useAppState } from "../presenter";
@@ -49,7 +48,6 @@ export const Starships = () => {
               </Typography>
             </CardContent>
             <CardActionArea>
-              <CardActions>
                 <Button
                   size="small"
                   onClick={(
@@ -60,7 +58,6 @@ export const Starships = () => {
                 >
                   Favorite
                 </Button>
-              </CardActions>
             </CardActionArea>
           </Card>
         ))}
