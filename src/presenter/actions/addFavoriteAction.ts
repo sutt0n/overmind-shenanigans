@@ -2,19 +2,17 @@ import type { Context } from "..";
 
 export const addFavoriteAction = (
   { state, effects }: Context,
-  url : string,
-  idx : number,
+  { url, idx }: { url: string; idx: number }
 ) => {
-
   // add to favorites
-  const currentFavorites = effects.getItem('favorites') || [];
+  const currentFavorites = effects.getItem("favorites") || [];
 
   currentFavorites.push(url);
 
   state.favorites = currentFavorites;
 
-  effects.setItem('todos', currentFavorites);
+  effects.setItem("todos", currentFavorites);
 
   // remove from state
-  state.starships.slice(idx, idx + 1);
+  state.starships = state.starships.filter((starship, _idx) => _idx !== idx);
 };
